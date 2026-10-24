@@ -1,0 +1,5 @@
+dist/
+__pycache__/
+*.pyc
+skills/*/scripts/reelkit/
+skills/*/fonts/

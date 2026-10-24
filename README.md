@@ -18,7 +18,11 @@ By Faryal Raza Bhatti, [faryalrazabhatti.co.uk](https://www.faryalrazabhatti.co.
 Uploading skills needs a Claude plan that supports skills (Pro, Max, Team or Enterprise at the time of
 writing) and code execution turned on.
 
-1. Download a skill zip from the [latest release](../../releases/latest). Don't unzip it.
+1. Download a skill zip. Don't unzip it.
+   - [prompt-cards-reel.zip](downloads/prompt-cards-reel.zip)
+   - [tier-list-reel.zip](downloads/tier-list-reel.zip)
+   - [split-screen-reel.zip](downloads/split-screen-reel.zip)
+   - [carousel-reel.zip](downloads/carousel-reel.zip)
 2. In Claude, open **Settings > Capabilities** and turn on **Code execution and file creation**.
 3. In the **Skills** section, click **Upload skill** and choose the zip.
 4. In a new chat, attach a clip and type the command, for example `/tier-list-reel`.
@@ -45,6 +49,7 @@ above your head, and a short pause between lines.
 
 - `skills/`: the four skills (instructions, plan formats, renderers)
 - `lib/`: the shared engine (setup, transcription, cutout, drawing, video I/O) and fonts
+- `downloads/`: ready-to-upload zips, one per skill
 - `build.sh`: copies the engine and fonts into each skill and writes the zips to `dist/`
 
 ## Other skills

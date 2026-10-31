@@ -1,6 +1,8 @@
 """Cut the person out of every frame.
 
-Usage:  python segment.py VIDEO MASK_DIR
+Usage:  python segment.py VIDEO MASK_DIR [STEP]
+
+STEP 2 cuts every 2nd frame only (half the time); fx.subject_mask blends the frames in between.
 
 Writes MASK_DIR/00001.png ... (540x960 greyscale, white = person). Resumable: frames
 already done are skipped, so it can be re-run after an interruption. About 1-2 frames
@@ -34,12 +36,12 @@ def mask(sess, img):
     return Image.fromarray((pred * 255).astype(np.uint8)).resize(img.size, Image.LANCZOS)
 
 
-def main(video, out_dir):
+def main(video, out_dir, step=1):
     os.makedirs(out_dir, exist_ok=True)
     sess = session()
     for i, frame in enumerate(frames(video, (540, 960)), start=1):
         path = os.path.join(out_dir, f'{i:05d}.png')
-        if os.path.exists(path):
+        if (i - 1) % step or os.path.exists(path):
             continue
         mask(sess, frame).save(path + '.tmp.png')
         os.replace(path + '.tmp.png', path)  # never leave a half-written mask behind
@@ -49,4 +51,4 @@ def main(video, out_dir):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 1)

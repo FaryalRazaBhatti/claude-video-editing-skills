@@ -1,8 +1,8 @@
 # Claude Video Editing Skills
 
-Four skills for Claude that edit a vertical talking-head clip into a reel format. You attach a clip,
-type the command, and Claude transcribes it, plans the timing, shows preview stills and renders the
-video.
+Seven skills for Claude that edit vertical video into finished reels. You attach a clip (or carousel
+slides), type the command, and Claude transcribes it, plans the timing, shows preview stills and
+renders the video.
 
 By Faryal Raza Bhatti, [faryalrazabhatti.co.uk](https://www.faryalrazabhatti.co.uk)
 
@@ -12,6 +12,13 @@ By Faryal Raza Bhatti, [faryalrazabhatti.co.uk](https://www.faryalrazabhatti.co.
 | tier-list-reel | `/tier-list-reel` | A tier board above the head that fills up as items are ranked, with a card per item whose badge flips to the tier letter |
 | split-screen-reel | `/split-screen-reel` | A chat panel on top (typed command, before and after clips), face cam below, then an end card |
 | carousel-reel | `/carousel-reel` | A "type this / for this carousel" reel, plus carousel cover templates made from your own photos |
+| talking-head-reel | `/talking-head-reel` | A raw clip edited into a reel: dead air cut, punch zooms, word-by-word captions with a sliding highlight, a big hook line, graded lighting, sound effects |
+| explainer-reel | `/explainer-reel` | A tip as a split screen: full-screen hook, then an animated chart (line, bar or steps) with a counter and badge above the face cam |
+| carousel-to-reel | `/carousel-to-reel` | Carousel slides turned into a video with story bars, push transitions, optional voiceover and sound effects |
+
+The three newer skills keep every caption and graphic inside the YouTube Shorts, Instagram Reels and
+TikTok safe zones, never put text on the speaker's face, keep the real background (lightly blurred)
+and add synthesized sound effects, so nothing needs licensing.
 
 ## Install
 
@@ -23,6 +30,9 @@ writing) and code execution turned on.
    - [tier-list-reel.zip](downloads/tier-list-reel.zip)
    - [split-screen-reel.zip](downloads/split-screen-reel.zip)
    - [carousel-reel.zip](downloads/carousel-reel.zip)
+   - [talking-head-reel.zip](downloads/talking-head-reel.zip)
+   - [explainer-reel.zip](downloads/explainer-reel.zip)
+   - [carousel-to-reel.zip](downloads/carousel-to-reel.zip)
 2. In Claude, open **Settings > Capabilities** and turn on **Code execution and file creation**.
 3. In the **Skills** section, click **Upload skill** and choose the zip.
 4. In a new chat, attach a clip and type the command, for example `/tier-list-reel`.
@@ -47,8 +57,8 @@ above your head, and a short pause between lines.
 
 ## Repository layout
 
-- `skills/`: the four skills (instructions, plan formats, renderers)
-- `lib/`: the shared engine (setup, transcription, cutout, drawing, video I/O) and fonts
+- `skills/`: the seven skills (instructions, plan formats, renderers)
+- `lib/`: the shared engine (setup, transcription, cutout, drawing, video I/O, grade, sound effects, safe zones) and fonts
 - `downloads/`: ready-to-upload zips, one per skill
 - `build.sh`: copies the engine and fonts into each skill and writes the zips to `dist/`
 
